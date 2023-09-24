@@ -10,10 +10,12 @@ import { MaterialModule } from './shared/material/material.module';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ClienteModule } from './pages/cliente/cliente.module';
 import { ContaModule } from './pages/conta/conta.module';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
