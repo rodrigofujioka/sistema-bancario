@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Conta } from 'src/app/shared/models/Conta';
+import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { ContaService } from 'src/app/shared/services/conta.service';
 import Swal from 'sweetalert2';
 
@@ -17,7 +18,7 @@ export class ListagemContaComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
 
-  constructor(private contaService: ContaService){
+  constructor(private contaService: ContaService, private clienteService: ClienteService){
   }
 
 
@@ -25,11 +26,21 @@ export class ListagemContaComponent {
     this.listarContas(1, 5)
   }
 
-  listarContas(page: number, pageSize: number) {
+  listarContas(page: number, pageSize: number){
     this.contaService.listar_paginado(page, pageSize).subscribe(contas => {
-      this.dataSource.data = contas;
+      this.clienteService.listar().subscribe(clientes =>{
+        const contasComNomesDeClientes = contas.map(conta => {
+          const cliente = clientes.find(cliente => cliente.id === conta.cliente);
+          if(cliente){
+            conta.nomeCliente = cliente.nome;
+          }
+          return conta;
+        });
+        this.dataSource.data = contasComNomesDeClientes;
+      });
     });
   }
+
 
   onPageChange(event: PageEvent) {
     const pageIndex = event.pageIndex + 1;

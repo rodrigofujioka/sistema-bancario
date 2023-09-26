@@ -9,11 +9,11 @@ import { CadastroContaComponent } from './cadastro-conta/cadastro-conta.componen
 import { ListagemContaComponent } from './listagem-conta/listagem-conta.component';
 
 
-
 @NgModule({
   declarations: [
     CadastroContaComponent,
-    ListagemContaComponent
+    ListagemContaComponent,
+
   ],
   imports: [
     CommonModule,

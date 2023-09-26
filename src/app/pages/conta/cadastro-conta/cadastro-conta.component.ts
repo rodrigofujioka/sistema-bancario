@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cliente } from 'src/app/shared/models/Cliente';
 import { Conta } from 'src/app/shared/models/Conta';
+import { ClienteService } from 'src/app/shared/services/cliente.service';
 import { ContaService } from 'src/app/shared/services/conta.service';
 import Swal from 'sweetalert2';
 
@@ -13,8 +15,10 @@ import Swal from 'sweetalert2';
 export class CadastroContaComponent implements OnInit{
   editar;
   formGroup: FormGroup;
+  clientes: Cliente[]
 
-  constructor(private contaService: ContaService, private router: Router, private route: ActivatedRoute){
+  constructor(private contaService: ContaService, private clienteService: ClienteService, private router: Router, private route: ActivatedRoute){
+    this.editar = false
     this.formGroup = new FormGroup({
       id: new FormControl(null),
       agencia: new FormControl('', Validators.required),
@@ -22,18 +26,25 @@ export class CadastroContaComponent implements OnInit{
       saldo: new FormControl('', Validators.required),
       cliente: new FormControl('', Validators.required)
     });
-    this.editar = false
+    this.clientes = []
   }
 
   ngOnInit(): void {
     if (this.route.snapshot.params["id"]){
       this.editar = true
       this.contaService.pesquisarPorId(this.route.snapshot.params["id"]).subscribe(
-        conta => {
-          this.formGroup.patchValue(conta)
+        cliente => {
+          this.formGroup.patchValue(cliente)
         }
       )
     }
+    this.listarClientes()
+  }
+
+  listarClientes(): void{
+    this.clienteService.listar().subscribe(values => {
+      this.clientes = values
+    })
   }
 
   cadastrar() {
@@ -60,7 +71,6 @@ export class CadastroContaComponent implements OnInit{
         }
       });
     } else {
-      // Modo de criação
       this.contaService.cadastrar(conta).subscribe({
         next: () => {
           Swal.fire({
