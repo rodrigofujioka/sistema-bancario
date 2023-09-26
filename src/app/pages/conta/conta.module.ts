@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { CadastroContaComponent } from './cadastro-conta/cadastro-conta.component';
 import { ListagemContaComponent } from './listagem-conta/listagem-conta.component';
+import { SaqueContaComponent } from './saque-conta/saque-conta.component';
 
 
 @NgModule({
   declarations: [
     CadastroContaComponent,
     ListagemContaComponent,
+    SaqueContaComponent,
 
   ],
   imports: [
@@ -28,7 +30,8 @@ import { ListagemContaComponent } from './listagem-conta/listagem-conta.componen
   providers: [],
   exports: [
     CadastroContaComponent,
-    ListagemContaComponent
+    ListagemContaComponent,
+    SaqueContaComponent
   ]
 })
 export class ContaModule { }
