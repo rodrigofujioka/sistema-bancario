@@ -5,6 +5,7 @@ import { ListagemClienteComponent } from './pages/cliente/listagem-cliente/lista
 import { CadastroContaComponent } from './pages/conta/cadastro-conta/cadastro-conta.component';
 import { ListagemContaComponent } from './pages/conta/listagem-conta/listagem-conta.component';
 import { SaqueContaComponent } from './pages/conta/saque-conta/saque-conta.component';
+import { TransferenciaContaComponent } from './pages/conta/transferencia-conta/transferencia-conta.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: 'saque',
         component: SaqueContaComponent
+      },
+      {
+        path: 'transferencia',
+        component: TransferenciaContaComponent
       },
       {
         path: '',

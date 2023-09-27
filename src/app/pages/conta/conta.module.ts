@@ -8,6 +8,8 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 import { CadastroContaComponent } from './cadastro-conta/cadastro-conta.component';
 import { ListagemContaComponent } from './listagem-conta/listagem-conta.component';
 import { SaqueContaComponent } from './saque-conta/saque-conta.component';
+import { TransferenciaContaComponent } from './transferencia-conta/transferencia-conta.component';
+
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { SaqueContaComponent } from './saque-conta/saque-conta.component';
     CadastroContaComponent,
     ListagemContaComponent,
     SaqueContaComponent,
+    TransferenciaContaComponent,
+
 
   ],
   imports: [
@@ -31,7 +35,8 @@ import { SaqueContaComponent } from './saque-conta/saque-conta.component';
   exports: [
     CadastroContaComponent,
     ListagemContaComponent,
-    SaqueContaComponent
+    SaqueContaComponent,
+    TransferenciaContaComponent
   ]
 })
 export class ContaModule { }

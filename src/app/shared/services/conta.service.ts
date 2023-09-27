@@ -48,8 +48,8 @@ export class ContaService {
     return this.clienteHttp.post<SaqueDeposito>(`${this.api}${deposito.conta}/desposito/`, deposito);
   }
 
-  transferencia(transferencia: Transferencia) : Observable<Transferencia>{
-    return this.clienteHttp.post<Transferencia>(`${this.api}${transferencia.conta_origem}/transferencia`, transferencia);
+  transferencia(transferencia: Transferencia): Observable<Transferencia>{
+    return this.clienteHttp.post<Transferencia>(`${this.api}${transferencia.conta_origem}/transferencia/`, transferencia);
   }
 
 }
