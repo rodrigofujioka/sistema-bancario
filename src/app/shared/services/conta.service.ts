@@ -45,7 +45,7 @@ export class ContaService {
   }
 
   deposito(deposito: SaqueDeposito) : Observable<SaqueDeposito>{
-    return this.clienteHttp.post<SaqueDeposito>(`${this.api}${deposito.conta}/desposito/`, deposito);
+    return this.clienteHttp.post<SaqueDeposito>(`${this.api}${deposito.conta}/deposito/`, deposito);
   }
 
   transferencia(transferencia: Transferencia): Observable<Transferencia>{
