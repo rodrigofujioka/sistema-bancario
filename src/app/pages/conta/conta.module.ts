@@ -9,6 +9,7 @@ import { CadastroContaComponent } from './cadastro-conta/cadastro-conta.componen
 import { ListagemContaComponent } from './listagem-conta/listagem-conta.component';
 import { SaqueContaComponent } from './saque-conta/saque-conta.component';
 import { TransferenciaContaComponent } from './transferencia-conta/transferencia-conta.component';
+import { DepositoContaComponent } from './deposito-conta/deposito-conta.component';
 
 
 
@@ -18,6 +19,7 @@ import { TransferenciaContaComponent } from './transferencia-conta/transferencia
     ListagemContaComponent,
     SaqueContaComponent,
     TransferenciaContaComponent,
+    DepositoContaComponent,
 
 
   ],
@@ -36,7 +38,8 @@ import { TransferenciaContaComponent } from './transferencia-conta/transferencia
     CadastroContaComponent,
     ListagemContaComponent,
     SaqueContaComponent,
-    TransferenciaContaComponent
+    TransferenciaContaComponent,
+    DepositoContaComponent
   ]
 })
 export class ContaModule { }

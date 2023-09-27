@@ -6,6 +6,7 @@ import { CadastroContaComponent } from './pages/conta/cadastro-conta/cadastro-co
 import { ListagemContaComponent } from './pages/conta/listagem-conta/listagem-conta.component';
 import { SaqueContaComponent } from './pages/conta/saque-conta/saque-conta.component';
 import { TransferenciaContaComponent } from './pages/conta/transferencia-conta/transferencia-conta.component';
+import { DepositoContaComponent } from './pages/conta/deposito-conta/deposito-conta.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path: 'transferencia',
         component: TransferenciaContaComponent
+      },
+      {
+        path: 'deposito',
+        component: DepositoContaComponent
       },
       {
         path: '',
