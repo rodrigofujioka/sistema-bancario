@@ -43,7 +43,7 @@ export class SaqueContaComponent {
     });
   }
 
-  cadastrar(){
+  sacar(){
     const saque: SaqueDeposito = this.formGroup.value;
     this.contaService.saque(saque).subscribe({
       next: () => {

@@ -47,9 +47,17 @@ export class DepositoContaComponent {
   }
 
 
-  cadastrar() {
-    const deposito: SaqueDeposito = this.formGroup.value.valor;
-      // Modo de criação
+  depositar() {
+    if (this.formGroup) {
+      const valor = this.formGroup.get('valor')?.value;
+      const conta = this.formGroup.get('conta')?.value;
+
+      const deposito: SaqueDeposito = {
+        valor: valor,
+        conta: conta
+      };
+
+
       this.contaService.deposito(deposito).subscribe({
         next: () => {
           Swal.fire({
@@ -58,7 +66,7 @@ export class DepositoContaComponent {
             text: 'Depósito registrado com sucesso!',
             showConfirmButton: false,
             timer: 1500
-          })
+          });
           this.router.navigate(['/conta']);
         },
         error: (error) => {
@@ -71,5 +79,5 @@ export class DepositoContaComponent {
         }
       });
     }
-
+  }
 }

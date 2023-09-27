@@ -2,7 +2,7 @@
   <div class="container-center">
     <div class="container-internal">
       <h1>Saque</h1>
-      <form [formGroup]="formGroup" cçass="example-form mt-4" (ngSubmit)="cadastrar()">
+      <form [formGroup]="formGroup" cçass="example-form mt-4" (ngSubmit)="sacar()">
         <small class="text-danger mb-2" *ngIf="formGroup.get('valor')?.errors && formGroup.get('valor')?.hasError('required')">
           Campo obrigatório
         </small>

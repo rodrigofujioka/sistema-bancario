@@ -48,7 +48,7 @@ export class TransferenciaContaComponent {
   }
 
 
-  cadastrar() {
+  transferir() {
     const tranferencia: Transferencia = this.formGroup.value;
       this.contaService.transferencia(tranferencia).subscribe({
         next: () => {
